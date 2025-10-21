@@ -1,0 +1,154 @@
+# 站点信息
+site_name: Godot SWF 文档
+site_description: Godot SWF 文档
+site_author: HYtomZ
+site_url: https://yourdomain.com
+
+# 仓库信息
+repo_name: github.com/HYTommm/Godot-SWF
+repo_url: https://github.com/HYTommm/Godot-SWF
+edit_uri: edit/main
+
+# 主题配置
+theme:
+  name: material
+  language: zh
+  
+# 颜色主题
+  palette:
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+  # 字体配置
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  # 图标
+  icon:
+    logo: material/library
+    repo: fontawesome/brands/github
+
+  # 功能特性
+  features:
+    - navigation.sections       # 导航部分
+    - navigation.expand         # 展开导航
+    - navigation.path           # 导航路径
+    - navigation.indexes        # 章节索引页面
+    - toc.follow               # 目录跟随
+    - toc.integrate            # 目录集成
+    - navigation.top           # 返回顶部按钮
+    - search.suggest           # 搜索建议
+    - search.highlight         # 搜索高亮
+    - search.share             # 搜索分享
+    - header.autohide          # 自动隐藏头部
+    - content.tabs.link        # 内容标签链接
+    - content.code.copy        # 代码复制按钮
+    - content.code.annotate    # 代码注释
+
+# 插件
+plugins:
+  - search:
+      lang: 
+        - zh
+        - en
+
+# Markdown 扩展
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: username
+      repo: repo-name
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# 额外配置
+extra:
+  # 社交链接
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/username
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/username
+    - icon: fontawesome/solid/envelope
+      link: mailto:your-email@example.com
+  
+  # 版本控制
+  version:
+    provider: mike
+
+# 额外的 CSS 和 JavaScript
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# 导航结构
+nav:
+  - 首页: index.md
+  - 快速开始:
+    - 安装: getting-started/setup.md
+  - 用户指南:
+    - 基础使用: user-guide/basics.md
+    - 高级功能: user-guide/advanced.md
+  - API 参考:
+    - 概述: api/overview.md
+    - 接口文档: api/endpoints.md
+  - 关于: about.md
+
+# 版权信息
+copyright: Copyright &copy; 2025 HYtomZ
+
+# 严格模式
+strict: false
