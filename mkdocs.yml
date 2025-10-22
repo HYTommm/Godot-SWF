@@ -2,7 +2,7 @@
 site_name: Godot SWF 文档
 site_description: Godot SWF 文档
 site_author: HYtomZ
-site_url: https://yourdomain.com
+site_url: https://hytomz.dev/Godot-SWF-doc/
 
 # 仓库信息
 repo_name: github.com/HYTommm/Godot-SWF
@@ -115,11 +115,7 @@ extra:
   # 社交链接
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/username
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/username
-    - icon: fontawesome/solid/envelope
-      link: mailto:your-email@example.com
+      link: https://github.com/HYTommm
   
   # 版本控制
   version:
