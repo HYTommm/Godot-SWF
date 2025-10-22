@@ -127,12 +127,12 @@ func play(id : int) -> int:
 	var i : int = swf_node.Play(id);
 	print(i)
 	return i
-	
+    
 func stop(id : int) -> void:
 	swf_node.Stop(id)
 
-func stop_all() -> void:
-	swf_node.StopAll()
+func stop_all(id : int) -> void:
+	swf_node.StopAll(id)
 
 func pause(id : int) -> void:
 	swf_node.Pause(id)
@@ -153,7 +153,7 @@ func set_anim_visible(id : int, visible : bool) -> void:
 	swf_node.SetVisible(id, visible)
 
 func is_finished(id : int) -> bool:
-	return swf_node.SetVisible()
+	return swf_node.IsFinished(id)
 ```
 ### 使用方法
 1. 在场景中创建一个空节点，命名为`SWFPlayer`。
