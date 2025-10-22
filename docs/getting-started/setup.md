@@ -50,22 +50,22 @@ project_root/
 
 ```xml
 <Reference Include="Clipper2Lib">
-    <HintPath>Clipper2Lib.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/Clipper2Lib.dll</HintPath>
 </Reference>
 <Reference Include="Godot SWF">
-    <HintPath>Godot SWF.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/Godot SWF.dll</HintPath>
 </Reference>
 <Reference Include="LibTessDotNet">
-    <HintPath>LibTessDotNet.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/LibTessDotNet.dll</HintPath>
 </Reference>
 <Reference Include="LibTessDotNet.Double">
-    <HintPath>LibTessDotNet.Double.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/LibTessDotNet.Double.dll</HintPath>
 </Reference>
 <Reference Include="SharpCompress">
-    <HintPath>SharpCompress.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/SharpCompress.dll</HintPath>
 </Reference>
 <Reference Include="SwfLib">
-    <HintPath>SwfLib.dll</HintPath>
+    <HintPath>Godot-SWF/dlls/SwfLib.dll</HintPath>
 </Reference>
 ```
 
@@ -104,22 +104,22 @@ project_root/
     <TrimmerRootAssembly Include="$(TargetName)" />
 	
     <Reference Include="Clipper2Lib">
-      <HintPath>Clipper2Lib.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/Clipper2Lib.dll</HintPath>
     </Reference>
     <Reference Include="Godot SWF">
-      <HintPath>Godot SWF.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/Godot SWF.dll</HintPath>
     </Reference>
     <Reference Include="LibTessDotNet">
-      <HintPath>LibTessDotNet.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/LibTessDotNet.dll</HintPath>
     </Reference>
     <Reference Include="LibTessDotNet.Double">
-      <HintPath>LibTessDotNet.Double.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/LibTessDotNet.Double.dll</HintPath>
     </Reference>
     <Reference Include="SharpCompress">
-      <HintPath>SharpCompress.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/SharpCompress.dll</HintPath>
     </Reference>
     <Reference Include="SwfLib">
-      <HintPath>SwfLib.dll</HintPath>
+      <HintPath>Godot-SWF/dlls/SwfLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
