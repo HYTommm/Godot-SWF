@@ -141,6 +141,7 @@ nav:
     - 安装: getting-started/setup.md
   - 用户指南:
     - 基础使用: user-guide/basics.md
+    - 纯Gdscript调用: gds/csharptogds.md
     - 高级功能: user-guide/advanced.md
   - API 参考:
     - 概述: api/overview.md
