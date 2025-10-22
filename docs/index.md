@@ -1,17 +1,48 @@
-# Welcome to MkDocs
+# Godot-SWF 插件文档
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Godot-SWF 是一个专为 Godot 4.x .NET 版本设计的高性能 SWF 动画播放器插件。本插件采用纯运行时解析技术，无需导入过程，直接在 Godot 引擎中播放 Adobe Animate (Flash) 导出的 SWF 文件。
 
-## Commands
+## 核心特性
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+### 优势
+- **纯运行时解析** - 无需导入过程，SWF 文件可直接作为资源使用
+- **高性能矢量渲染** - 基于 Rendering Server 实现，几乎不依赖节点树
+- **双语言支持** - 提供 C# 原生 API 和 GDScript 桥接接口
+- **实时渲染** - 保持矢量图形的清晰度，支持任意缩放
+- **轻量级架构** - 专注于动画播放，代码简洁高效
 
-## Project layout
+### 技术限制
+- **不支持交互功能** - 按钮点击、鼠标事件等交互功能无法使用
+- **无 ActionScript 解析** - 不包含 AS 虚拟机或解析器
+- **颜色空间限制** - 颜色转换滤镜存在颜色空间转换问题
+- **功能专注** - 专注于动画播放，不支持声音、视频等多媒体元素
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## 系统要求
+
+- **Godot 引擎**: 4.3 或更高版本（推荐 4.4.1）
+- **.NET 运行时**: 8.0 或更高版本
+- **项目类型**: .NET 版本的项目
+
+## 快速导航
+
+- [安装指南](getting-started/setup.md) - 完整的安装和配置步骤
+- [基础使用](user-guide/basics.md) - 快速上手指南
+- [GDScript 调用](gds/csharptogds.md) - 纯 GDScript 使用方案
+- [API 参考](api/overview.md) - 完整的接口文档
+
+## 适用场景
+
+Godot-SWF 插件特别适合以下场景：
+- 将现有的 Flash 动画资源迁移到 Godot 项目
+- 需要在游戏中播放复杂的矢量动画
+- 对动画质量有较高要求，需要保持矢量清晰度
+- 项目已使用 .NET 版本的 Godot 引擎
+
+## 价格与授权
+
+Godot-SWF 为商业插件，当前售价：**$29.99**
+
+购买后您将获得：
+- 完整的插件文件包
+- 技术支持和更新服务
+- 商业使用授权

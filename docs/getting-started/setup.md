@@ -39,7 +39,7 @@ project_root/
 如果您的项目中没有project.godot文件，请点击标题栏中的项目，然后依次点击工具->C#->Create C# solution。
 
 如下图所示
-[![21223](https://www.freeimg.cn/uploads/486/68f79aa765339.png)](https://www.freeimg.cn/uploads/486/68f79aa765339.png)
+![21223](https://www.freeimg.cn/uploads/486/68f79aa765339.png)
 
 开启aot编译
 ```xml
