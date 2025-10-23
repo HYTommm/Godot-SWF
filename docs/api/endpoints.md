@@ -11,6 +11,13 @@ public AnimationFinishedEventHandler AnimationFinished;
 ```
 当动画播放完成时触发。参数为完成的动画标识符。
 
+#### ParseFinished
+```csharp
+public delegate void ParseFinishedEventHandler();
+public ParseFinishedEventHandler ParseFinished;
+```
+当 SWF 文件解析完成时触发。
+
 ### GDScript 信号
 
 #### animation_finished
@@ -18,6 +25,12 @@ public AnimationFinishedEventHandler AnimationFinished;
 signal animation_finished(id: int)
 ```
 当动画播放完成时触发。参数为完成的动画ID。
+
+#### parse_finished
+```gdscript
+signal parse_finished()
+```
+当 SWF 文件解析完成时触发。
 
 ## C# 原生 API
 
@@ -36,13 +49,18 @@ SWF(string swfPath, CanvasItem root)
 ```csharp
 void Parse()
 ```
-解析 SWF 文件，必须在播放前调用。
+**开始** 解析 SWF 文件，必须在播放前调用。请注意，此方法是异步的，调用后会立即返回，但解析可能需要几秒钟时间。请在 `ParseFinished` 事件（信号）中处理解析完成后的逻辑。
 
 **Play**
 ```csharp
-Aid Play(int shapeId)
+Aid Play(int shapeID, float playScale = 1, Transform2D transform = default, Color color = default, bool loop = false)
 ```
-播放指定动画，返回动画标识符。
+播放指定动画，返回动画标识符。可以指定播放速度、变换矩阵、颜色、是否循环播放。
+
+```csharp
+List<Aid> Play(List<int> shapeIDs, List<float> playScales = null)
+```
+批量播放动画，返回动画标识符列表。只能指定播放速度列表，如果不指定，则使用默认值。
 
 **Stop**
 ```csharp
@@ -86,11 +104,23 @@ void SetVisible(Aid aid, bool visible)
 ```
 设置动画可见性。
 
+**SetIsLooping**
+```csharp
+void SetIsLooping(Aid aid, bool isLooping)
+```
+设置动画是否循环播放。
+
 **IsFinished**
 ```csharp
 bool IsFinished(Aid aid)
 ```
 检查动画是否播放完成。
+
+**GetParseProgress**
+```csharp
+float GetParseProgress()
+```
+获取解析进度。返回值范围为 0.0-1.0，表示已解析的比例。注意，此方法仅返回已解析的比例，并不表示解析是否完成。若要检查解析是否完成，请使用 `ParseFinished` 事件（信号）。
 
 **Clear**
 ```csharp
@@ -170,11 +200,23 @@ func set_anim_visible(id: int, visible: bool) -> void
 ```
 设置动画可见性。
 
+**set_anim_is_looping**
+```gdscript
+func set_anim_is_looping(id: int, is_looping: bool) -> void
+```
+设置动画是否循环播放。
+
 **is_finished**
 ```gdscript
 func is_finished(id: int) -> bool
 ```
 检查动画是否完成。
+
+**get_parse_progress**
+```gdscript
+func get_parse_progress() -> float
+```
+获取解析进度。返回值范围为 0.0-1.0，表示已解析的比例。注意，此方法仅返回已解析的比例，并不表示解析是否完成。若要检查解析是否完成，请使用 `parse_finished` 信号。
 
 ## 参数说明
 
@@ -205,8 +247,7 @@ public partial class AnimationPlayer : Node2D
         
         // 订阅完成事件
         _swf.AnimationFinished += OnAnimationFinished;
-        
-        _swf.Play(100);
+        _swf.ParseFinished += () => _swf.Play(100);
     }
     
     private void OnAnimationFinished(Aid aid)
@@ -221,20 +262,19 @@ public partial class AnimationPlayer : Node2D
 
 ```gdscript
 extends Node2D
-
+var aid : int
 func _ready():
     var swf = godot_swf_gds_bridge.new()
     swf.class_init()
     
     # 连接完成信号
     swf.animation_finished.connect(_on_animation_finished)
-    
+    swf.parse_finished.connect(func():
+        aid = swf.play(100)
+    )
     swf.load_swf("res://animations/character.swf")
     swf.parse()
     add_child(swf)
-    
-    # 播放动画
-    var aid = swf.play(100)
 
 func _on_animation_finished(id: int):
     print("动画播放完成, ID: ", id)
@@ -253,9 +293,13 @@ public class AnimationController : Node2D
     public override void _Ready()
     {
         _swf = new SWF("res://animations/character.swf", this);
+        _swf.ParseFinished += () => OnParseFinished();
         AddChild(_swf);
         _swf.Parse();
-        
+    }
+
+    private void OnParseFinished()
+    {
         // 预加载多个动画
         _animations["walk"] = _swf.Play(100, float playScale = 0f); // 先暂停
         

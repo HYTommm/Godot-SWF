@@ -20,13 +20,10 @@ public partial class SWFExample : Node2D
         
         // 创建 SWF 实例并加载文件
         _swf = new SWF(_swfPath, this);
+        _swf.ParseFinished += () => _swf.Play(256); // 当解析完成时播放动画
         AddChild(_swf);
-        
-        // 解析 SWF 文件
+        // 开始解析 SWF 文件
         _swf.Parse();
-        
-        // 播放指定动画ID
-        _swf.Play(256);
     }
 }
 ```
