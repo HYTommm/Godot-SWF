@@ -1,5 +1,24 @@
 # 接口文档
 
+## 信号与事件
+
+### C# 原生事件
+
+#### AnimationFinished
+```csharp
+public delegate void AnimationFinishedEventHandler(Aid aid);
+public AnimationFinishedEventHandler AnimationFinished;
+```
+当动画播放完成时触发。参数为完成的动画标识符。
+
+### GDScript 信号
+
+#### animation_finished
+```gdscript
+signal animation_finished(id: int)
+```
+当动画播放完成时触发。参数为完成的动画ID。
+
 ## C# 原生 API
 
 ### SWF 类
@@ -169,6 +188,59 @@ SWF 文件中定义的符号ID，需要通过工具查看或文档获取。
 使用 Transform2D 类型，支持平移、旋转、缩放等变换。
 
 ## 使用示例
+
+### 信号使用示例
+
+#### C# 事件使用
+```csharp
+public partial class AnimationPlayer : Node2D
+{
+    private SWF _swf;
+    
+    public override void _Ready()
+    {
+        _swf = new SWF("res://animations/character.swf", this);
+        AddChild(_swf);
+        _swf.Parse();
+        
+        // 订阅完成事件
+        _swf.AnimationFinished += OnAnimationFinished;
+        
+        _swf.Play(100);
+    }
+    
+    private void OnAnimationFinished(Aid aid)
+    {
+        GD.Print($"动画播放完成, ID: {aid.Id}");
+        // 播放下一个动画或执行其他逻辑
+    }
+}
+```
+
+#### GDScript 信号使用
+
+```gdscript
+extends Node2D
+
+func _ready():
+    var swf = godot_swf_gds_bridge.new()
+    swf.class_init()
+    
+    # 连接完成信号
+    swf.animation_finished.connect(_on_animation_finished)
+    
+    swf.load_swf("res://animations/character.swf")
+    swf.parse()
+    add_child(swf)
+    
+    # 播放动画
+    var aid = swf.play(100)
+
+func _on_animation_finished(id: int):
+    print("动画播放完成, ID: ", id)
+    # 播放下一个动画或执行其他逻辑
+```
+
 
 ### 复杂的动画序列控制
 ```csharp
