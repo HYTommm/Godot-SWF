@@ -28,7 +28,9 @@ Godot-SWF 是一个专为 Godot 4.x .NET 版本设计的高性能 SWF 动画播�
 - [安装指南](getting-started/setup.md) - 完整的安装和配置步骤
 - [基础使用](user-guide/basics.md) - 快速上手指南
 - [GDScript 调用](gds/csharptogds.md) - 纯 GDScript 使用方案
-- [API 参考](api/overview.md) - 完整的接口文档
+- [API 概览](api/overview.md) - api概览
+    - [C# API](api/CSharp原生API/SWF.md)
+    - [GDScript API](api/gds桥接api/godot_swf_gds_bridge.md)
 
 ## 适用场景
 
@@ -43,6 +45,7 @@ Godot-SWF 插件特别适合以下场景：
 Godot-SWF 为商业插件，当前售价：**￥29.99**
 
 购买后您将获得：
+
 - 完整的插件文件包
 - 技术支持和更新服务
 - 商业使用授权
