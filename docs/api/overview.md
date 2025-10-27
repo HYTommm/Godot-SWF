@@ -6,7 +6,7 @@ Godot-SWF 提供多层次的 API 设计，满足不同用户的需求。从高�
 
 ## 架构说明
 
-![QQ20251022-190552](https://www.freeimg.cn/uploads/486/68f8baa4ab9dd.png)
+![QQ20251027-174104](https://www.freeimg.cn/uploads/486/68ff3e4b77e47.png)
 
 ## 各层级说明
 
