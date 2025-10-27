@@ -142,7 +142,7 @@ nav:
   - API 参考:
     - 概述: api/overview.md
     - C# API:
-      - SWF: api/C#原生API/SWF.md
+      - SWF: api/CSharp原生API/SWF.md
       - SwfAnimation 类: api/CSharp原生API/SwfAnimation.md
     - GDScript API:
       - GDScript 桥接 API: api/gds桥接api/godot_swf_gds_bridge.md
